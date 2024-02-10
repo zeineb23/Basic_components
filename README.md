@@ -1,9 +1,10 @@
-#**Components :**
+**Components :**
+
 **List :**
-!(/images/list.png)
+![List](/images/list.png)
 
 **Login :**
-!(/images/login.png)
-!(/images/weak.png)
-!(/images/medium.png)
-!(/images/string.png)
+![List](/images/login.png)
+![Weak pwd](/images/weak.png)
+![Medium pwd](/images/medium.png)
+![Strong pwd](/images/strong.png)
