@@ -1,8 +1,10 @@
 import React, { Component } from 'react'; 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../css/Login.css";
+import { Button } from 'react-bootstrap';
 import LoginIcon from '@mui/icons-material/Login';
-
+import {auth, provider} from "../services/FirebaseConfig.js";
+import {signInWithPopup} from "firebase/auth";
 const strengthLabels = ["Weak", "Medium", "Strong"];
 
 class Login extends Component {
@@ -10,7 +12,8 @@ class Login extends Component {
     super(props);
     this.state = {
       password: '',
-      strength: ''
+      strength: '',
+      value: ''
     };
   }
 
@@ -22,6 +25,13 @@ class Login extends Component {
     if (/[^a-zA-Z0-9]/.test(password)) indicator++;
     if (password.length >= 16) indicator++;
     return strengthLabels[indicator];
+  }
+
+  HandleClick = () =>{
+    signInWithPopup(auth, provider).then((data)=>{
+        this.state.value=data.user.email;
+        localStorage.setItem("email",data.user.email)
+    })
   }
 
   handleChange = (event) => {
@@ -56,7 +66,11 @@ class Login extends Component {
             </div>
             <button>Sign In</button> 
           </form> 
-          <div className="footer"> Need an account? Sign up <a href="#">here</a> </div> 
+          <div className="footer"> Need an account? Sign up <a href="#">here</a> 
+          <br/>
+          <br/>
+          <Button variant="primary" onClick={this.HandleClick}><img src="https://d172mw7nx82lso.cloudfront.net/assets/landing/auth/google-d33f9eb20af60f124ea3de0def9116700064e558db8a63275354162d46ae09cb.png" width="140px" height="40px"/></Button>
+          </div> 
         </div>
       </div>
     );
