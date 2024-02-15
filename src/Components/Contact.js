@@ -38,10 +38,10 @@ function Contact() {
                             <label>Phone</label>
                         </div>
                         <div class="input-box">
-                            <input type="text" className="input" required/>
+                            <textarea id="message" className="input" cols="25" rows="5" required></textarea>
                             <label>Message</label>
                         </div>
-                        <input type="submit" value="Submit"/>
+                        <input type="submit" className="btn "value="Submit"/>
                     </form>
                 </div>
                 
