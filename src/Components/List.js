@@ -1,4 +1,5 @@
 import React, { Component } from 'react'; 
+import "../css/list.css";
 import Table from 'react-bootstrap/Table';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import DeleteIcon from '@mui/icons-material/Delete';
